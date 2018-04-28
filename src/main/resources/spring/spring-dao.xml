@@ -2,9 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     <!--配置整合mybatis过程-->
     <!--1.配置数据库相关参数properties的属性：${url}-->
     <bean id="dataConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -60,6 +62,12 @@
         <!-- 给出需要扫描的Dao接口-->
         <property name="basePackage" value="org.seckill.dao"/>
     </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!--注解方式配置事务-->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 
     <!--redisDao-->
     <bean id="redisDao" class="org.seckill.dao.cache.RedisDao">
