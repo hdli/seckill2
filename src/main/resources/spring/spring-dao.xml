@@ -63,12 +63,6 @@
         <property name="basePackage" value="org.seckill.dao"/>
     </bean>
 
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
-    <!--注解方式配置事务  已经在spring-service.xml中添加 -->
-    <!--<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />-->
-
     <!--redisDao-->
     <bean id="redisDao" class="org.seckill.dao.cache.RedisDao">
         <constructor-arg index="0" value="${redis.path}"/>
