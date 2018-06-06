@@ -10,10 +10,10 @@
        http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
     <!-- 引入redis配置 -->
-    <bean id="redisConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <!--<bean id="redisConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:redis.properties" />
         <property name="ignoreUnresolvablePlaceholders" value="true" />
-    </bean>
+    </bean>-->
 
 
     <!-- Redis 配置 -->

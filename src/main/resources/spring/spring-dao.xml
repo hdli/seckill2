@@ -14,7 +14,7 @@
         <!--<property name="location" value="classpath:jdbc.properties" />-->
         <property name="locations">
             <list>
-                <value>classpath:jdbc.properties</value>
+                <value>classpath:config/config_${res_env_run}.properties</value>
             </list>
         </property>
     </bean>
